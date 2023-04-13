@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (!instance)
         {
-            Debug.Log("生成单例");
+            Debug.Log("生成GM单例");
             instance = this;
         }
     }
