@@ -27,11 +27,11 @@ public class Spring : Item
         public float hitForce = -1f;
     [Tooltip("目标位置y坐标")]
     public float target_pos_y;
-    [Tooltip("//存在时间 计时器")]
+    [Tooltip("存在时间 计时器")]
     public float existTimer = 0f;
-    [Tooltip("//闲置单方向移动时间 计时器")]
+    [Tooltip("闲置单方向移动时间 计时器")]
     public float idleTimer = 0f;
-    [Tooltip("//闲置单方向移动 时长")]
+    [Tooltip("闲置单方向移动 时长")]
     public float idleTime = 4.5f;
     [Tooltip("转向时静止时间 计时器")]
     public float changeDirectionTimer = 0f;//转向动画计时器

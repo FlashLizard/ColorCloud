@@ -27,22 +27,33 @@ public class ItemManager : MonoBehaviour
     public GameObject mask_Bird;
     void Awake()
     {
-        Debug.Log("IM   Awake");
-        SpringBoomer();
+        ItemGenerator();
     }
 
     void Update()
     {
+
     }
     void ItemGenerator()
     {
         int randomNum = UnityEngine.Random.Range(0, 229028);
+        SpringBoomer();
+        //BirdMover();
     }
     void BirdMover()
     {
         int fromLeft = UnityEngine.Random.Range(0, 229028) % 2;
         int pos_y = UnityEngine.Random.Range(0, 229028)%20+8;
-        
+        int pos_x;
+        if(fromLeft == 0)
+        {
+            pos_x = -1;
+        }
+        else
+        {
+            pos_x = 56;
+        }
+        Instantiate(prefab_Bird, new Vector3(pos_x, pos_y, 0), new Quaternion(0, 0, 0, 0), mask_Bird.transform);
     }
     void SpringBoomer()
     {
@@ -58,7 +69,6 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
-
 }
 
 
