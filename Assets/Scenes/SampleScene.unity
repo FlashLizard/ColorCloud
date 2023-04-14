@@ -490,11 +490,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &884224787 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8708697240986252317, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
-  m_PrefabInstance: {fileID: 8708697241866258190}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &884224788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8708697240986252314, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
@@ -659,8 +654,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab_Spring: {fileID: 3944001503954870105, guid: e6473e14b6d71a04aae9b7712ef5a169, type: 3}
   mask_Spring: {fileID: 142940989}
-  prefab_Bird: {fileID: 884224787}
+  prefab_Bird: {fileID: 8708697240986252317, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
   mask_Bird: {fileID: 1285810295}
+  appearIntervals: []
+  appearTimers: []
 --- !u!114 &1278851958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8699,17 +8696,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1285810296}
     m_Modifications:
-    - target: {fileID: 8708697240986252310, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
-      propertyPath: m_MaskInteraction
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8708697240986252314, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8708697240986252314, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8708697240986252314, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8750,18 +8739,6 @@ PrefabInstance:
     - target: {fileID: 8708697240986252314, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8708697240986252315, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
-      propertyPath: existTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8708697240986252315, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
-      propertyPath: flyVelocity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8708697240986252315, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
-      propertyPath: flyDiretionTurnedTime
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8708697240986252317, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
       propertyPath: m_Name

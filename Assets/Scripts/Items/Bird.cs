@@ -65,7 +65,7 @@ public class Bird : Item
     }
     void ChangeDirection()
     {
-        Debug.Log("cos(90) = " + Mathf.Cos(6.28f));
+        //Debug.Log("cos(90) = " + Mathf.Cos(6.28f));
         velocity_Alpha = (float)(UnityEngine.Random.Range(0, 229028) % 1000) / 1000f * (2 * Mathf.PI);// 0 ~ 2¦Ð
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(flyVelocity * Mathf.Cos(velocity_Alpha), flyVelocity * Mathf.Sin(velocity_Alpha));
         ChangeSpriteDirection();

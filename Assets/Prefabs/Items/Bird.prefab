@@ -48,19 +48,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_Item: 
   desciption: 
-  appearInterval: 0
-  existTime: 0
+  appearInterval: 6
+  existTime: 20
   reuseTimes: 0
-  flyVelocity: 1.14
-  flyDiretionTurnedTime: 5.14
+  flyVelocity: 8
+  flyDiretionTurnedTime: 3
   emitTime: 5.14
   coloredRadius: 1.91
   colorItselfLastingTime: 9.81
   colorItself: white
-  velocity_alpha: 0
+  velocity_Alpha: 0
   flyDiretionTurnedTimer: 0
   existTimer: 0
   isDisappearing: 0
+  isOutOfMap: 0
+  target_pos_x: 0
+  target_pos_y: 0
 --- !u!212 &8708697240986252310
 SpriteRenderer:
   m_ObjectHideFlags: 0

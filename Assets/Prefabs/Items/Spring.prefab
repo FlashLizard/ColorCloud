@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_Item: 
   desciption: 
-  appearInterval: 0
+  appearInterval: 12
   existTime: 18.86
   reuseTimes: 0
   singleHeight: 4

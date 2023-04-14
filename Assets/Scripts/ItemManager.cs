@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [System.Serializable]
 public class Item:MonoBehaviour
@@ -25,20 +27,64 @@ public class ItemManager : MonoBehaviour
     public GameObject mask_Spring;
     public GameObject prefab_Bird;
     public GameObject mask_Bird;
+
+    public List <float> appearIntervals = new List<float>();
+    public List <float> appearTimers = new List<float>();
+
+    public delegate void ItemGeneratorsArray();
+    public ItemGeneratorsArray[] ItemGenerators;//函数指针数组，方便按照下标调用
+
     void Awake()
     {
-        ItemGenerator();
+        appearIntervals.Add(prefab_Spring.GetComponent<Spring>().appearInterval);
+        appearIntervals.Add(prefab_Bird.GetComponent<Bird>().appearInterval);
+        for (int i = 0; i < appearIntervals.Count; i++)
+        {
+            appearTimers.Add(0);
+        }
+        ItemGenerators = new ItemGeneratorsArray[]
+        {
+        SpringBoomer,
+        BirdMover,
+        };
     }
 
     void Update()
     {
-
+        ItemGenerator();
     }
     void ItemGenerator()
     {
+        
+        
+
+        for (int i=0;i<appearIntervals.Count;i++)
+        {
+            appearTimers[i] += Time.deltaTime;
+            if (appearTimers[i] > appearIntervals[i])
+            {
+                appearTimers[i] -= appearIntervals[i];
+                ItemGenerators[i]();//调用生成第i个场景元素的函数
+            }
+        }
         int randomNum = UnityEngine.Random.Range(0, 229028);
-        SpringBoomer();
+        //SpringBoomer();
         //BirdMover();
+    }
+    
+    void SpringBoomer()
+    {
+        int pos_x = UnityEngine.Random.Range(0, 229028) % 45 + 5;
+        int num_x = (int)(prefab_Spring.GetComponent<Spring>().totalWidth / prefab_Spring.GetComponent<Spring>().singleWidth);
+        int num_y = (int)(prefab_Spring.GetComponent<Spring>().totalHeight / prefab_Spring.GetComponent<Spring>().singleHeight);
+        for(int i=0;i<num_x;i++)
+        {
+            for(int j=0;j<num_y;j++)
+            {
+                Vector3 pos = new Vector3(pos_x + i * prefab_Spring.GetComponent<Spring>().singleWidth, -(j + 1) * prefab_Spring.GetComponent<Spring>().singleHeight, 0);
+                Instantiate(prefab_Spring,pos,new Quaternion(0,0,0,0), mask_Spring.transform);
+            }
+        }
     }
     void BirdMover()
     {
@@ -54,20 +100,6 @@ public class ItemManager : MonoBehaviour
             pos_x = 56;
         }
         Instantiate(prefab_Bird, new Vector3(pos_x, pos_y, 0), new Quaternion(0, 0, 0, 0), mask_Bird.transform);
-    }
-    void SpringBoomer()
-    {
-        int pos_x = UnityEngine.Random.Range(0, 229028) % 45 + 5;
-        int num_x = (int)(prefab_Spring.GetComponent<Spring>().totalWidth / prefab_Spring.GetComponent<Spring>().singleWidth);
-        int num_y = (int)(prefab_Spring.GetComponent<Spring>().totalHeight / prefab_Spring.GetComponent<Spring>().singleHeight);
-        for(int i=0;i<num_x;i++)
-        {
-            for(int j=0;j<num_y;j++)
-            {
-                Vector3 pos = new Vector3(pos_x + i * prefab_Spring.GetComponent<Spring>().singleWidth, -(j + 1) * prefab_Spring.GetComponent<Spring>().singleHeight, 0);
-                Instantiate(prefab_Spring,pos,new Quaternion(0,0,0,0), mask_Spring.transform);
-            }
-        }
     }
 }
 
