@@ -23,7 +23,7 @@ public class Bird : Item
     [Tooltip("存在时间 计时器")]
     public float existTimer = 0f;
     public bool isDisappearing = false;
-    public bool isOutOfMap = false;
+    //public bool isOutOfMap = false;
 
     public float target_pos_x;
     public float target_pos_y;
@@ -83,10 +83,10 @@ public class Bird : Item
     {
         if (transform.position.x <= 0 || transform.position.x >= 55 || transform.position.y <= 0 || transform.position.y >= 30)
         {
-            isOutOfMap = true;
+            //isOutOfMap = true;
             return true;
         }
-        isOutOfMap = false;
+        //isOutOfMap = false;
         return false;
     }
     void Homecoming()
