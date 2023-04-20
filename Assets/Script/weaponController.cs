@@ -6,19 +6,27 @@ using UnityEngine;
 
 public class weaponController : MonoBehaviour
 {
-    public int weaponIndex; // 武器标号
-    public int bulletNum = 1; // 一次发射的子弹数量
-    public float bulletAngle = 15; // 散射角度
-    public float interval; // 射击间隔
-    public int MP_consume; // 耗费的法力值
+    [Tooltip("武器标号")]
+    public int weaponIndex; // 
+    [Tooltip("一次发射的子弹数量")]
+    public int bulletNum = 1; // 
+    [Tooltip("多子弹的散射角度")]
+    public float bulletAngle = 15; // 
+    [Tooltip("射击间隔")]
+    public float interval; // 
+    [Tooltip("耗费的法力值")]
+    public int MP_consume; //
     public playerController player;
     public GameObject bulletPrefab;
     //public GameObject shellPrefab;
-    protected Transform muzzlePos; // 枪口坐标
-
-    protected Vector2 mousePos; // 鼠标坐标
-    protected Vector2 faceDirection; // 朝向
-    protected float timer; // 计时器
+    [Tooltip("枪口坐标")]
+    protected Transform muzzlePos; // 
+    [Tooltip("鼠标坐标")]
+    protected Vector2 mousePos; // 
+    [Tooltip("朝向")]
+    protected Vector2 faceDirection; // 
+    [Tooltip("计时器")]
+    protected float timer; // 
     protected float flipY;
     protected Animator animator;
 

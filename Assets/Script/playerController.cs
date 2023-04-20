@@ -6,31 +6,44 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerController : MonoBehaviour
 {
+    [Tooltip("玩家名")]
     public string player_name; // 玩家名
-    
-    public int teamColor; // 队伍
+    [Tooltip("队伍")]
+    public int teamColor; // 
+
     public float currentHP, maxHp, recoverHp; // 血量 以及恢复速度
     public float currentMP, maxMp, recoverMp; // 蓝量 = 颜料量 以及恢复速度
-    public float flyConsume; // 在敌方地块染色消耗地 蓝量
+    [Tooltip("在敌方地块飞行染色消耗的蓝量")]
+    public float flyConsume; // 
+
     private float RecoverInterval, Rtimer; // 多久不受到伤害就开始回复
-    public float defenseRate; // 防御率 受到的伤害乘以 (1 - df)
+    [Tooltip("防御率 受到的伤害乘以 (1 - df)")]
+    public float defenseRate; // 
 
-    public int damage; // 输出
-    public int sufferance; // 受到伤害量
-    public int kills; // 人头数
-    public int death; // 死亡数
-
-    public int kit; // 职业种类
-
-    public float moveSpeedX; // X方向最大速度
-    public float moveSpeedY; // Y方向最大速度
-
-    public float gravityFactor; // 重力加速度
-    public float maxFallSpeed; // 最大下落速度
-
-    public bool isInEnemy; // 是否在敌人的地块
-    public bool isInAlley; // 在我方地块
-    public bool isGrounded; // 是否落地
+    [Tooltip("玩家输出")]
+    public float damages; // 
+    [Tooltip("受到伤害量")]
+    public int sufferance; // 
+    [Tooltip("人头数")]
+    public int kills; // 
+    [Tooltip("死亡数")]
+    public int death; // 
+    [Tooltip("职业种类")]
+    public int kit; // 
+    [Tooltip("X方向最大速度")]
+    public float moveSpeedX; // 
+    [Tooltip("Y方向最大速度")]
+    public float moveSpeedY; // 
+    [Tooltip("重力加速度")]
+    public float gravityFactor; // 
+    [Tooltip("最大下落速度")]
+    public float maxFallSpeed; // 
+    [Tooltip("是否在敌人的地块")]
+    public bool isInEnemy; // 
+    [Tooltip("在我方地块")]
+    public bool isInAlley; // 
+    [Tooltip("是否落地")]
+    public bool isGrounded; // 
     //private bool canHurt; // 没有处于无敌帧 fps好像都没有无敌帧
 
     public LayerMask ground;
@@ -158,7 +171,7 @@ public class playerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, -180f, 0);
     }
 
-    public void takeDamage(float damage)
+    public bool takeDamage(float damage)
     {
         if (damage > 0) // 是攻击不是奶 要用防御值修正
         {
@@ -172,12 +185,14 @@ public class playerController : MonoBehaviour
         {
             currentHP = 0;
             Death();
+            return true;
         }
         if (currentHP > maxHp)
         {
             currentHP = maxHp;
         }
         //}
+        return false;
     }
 
     private void Death() // 死了怎么处理？

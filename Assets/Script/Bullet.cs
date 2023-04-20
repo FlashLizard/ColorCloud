@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float distance; // 射程 
-    public float damage; // 伤害
-    public float gravityScale; // 受重力影响
-    public float speed; // 子弹速度
+    [Tooltip("射程")]
+    public float distance; //  
+    [Tooltip("伤害")]
+    public float damage; // 
+    [Tooltip("受重力影响")]
+    public float gravityScale; // 
+    [Tooltip("子弹速度")]
+    public float speed; // 
     private Rigidbody2D rb;
     public CircleCollider2D col;
     private playerController player;
@@ -71,8 +75,11 @@ public class Bullet : MonoBehaviour
             {
                 if (otherPlayer.teamColor != player.teamColor) // 打到敌人了
                 {
-                    otherPlayer.takeDamage(damage);
+                    bool isKilled = otherPlayer.takeDamage(damage);
                     otherPlayer.rb.AddRelativeForce(rb.velocity * 10, ForceMode2D.Force); // 给予敌人击退 
+                    
+                    player.damages += damage * (1 - otherPlayer.defenseRate); // 伤害数更新
+                    if (isKilled) player.kills ++; // 击杀数 ++ 
                 }
                 else // 打到友军了
                 {
