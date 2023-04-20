@@ -6,26 +6,26 @@ using UnityEngine;
 
 public class weaponController : MonoBehaviour
 {
-    [Tooltip("ÎäÆ÷±êºÅ")]
+    [Tooltip("æ­¦å™¨æ ‡å·")]
     public int weaponIndex; // 
-    [Tooltip("Ò»´Î·¢ÉäµÄ×Óµ¯ÊıÁ¿")]
+    [Tooltip("ä¸€æ¬¡å‘å°„çš„å­å¼¹æ•°é‡")]
     public int bulletNum = 1; // 
-    [Tooltip("¶à×Óµ¯µÄÉ¢Éä½Ç¶È")]
+    [Tooltip("å¤šå­å¼¹çš„æ•£å°„è§’åº¦")]
     public float bulletAngle = 15; // 
-    [Tooltip("Éä»÷¼ä¸ô")]
+    [Tooltip("å°„å‡»é—´éš”")]
     public float interval; // 
-    [Tooltip("ºÄ·ÑµÄ·¨Á¦Öµ")]
+    [Tooltip("è€—è´¹çš„æ³•åŠ›å€¼")]
     public int MP_consume; //
     public playerController player;
     public GameObject bulletPrefab;
     //public GameObject shellPrefab;
-    [Tooltip("Ç¹¿Ú×ø±ê")]
+    [Tooltip("æªå£åæ ‡")]
     protected Transform muzzlePos; // 
-    [Tooltip("Êó±ê×ø±ê")]
+    [Tooltip("é¼ æ ‡åæ ‡")]
     protected Vector2 mousePos; // 
-    [Tooltip("³¯Ïò")]
+    [Tooltip("æœå‘")]
     protected Vector2 faceDirection; // 
-    [Tooltip("¼ÆÊ±Æ÷")]
+    [Tooltip("è®¡æ—¶å™¨")]
     protected float timer; // 
     protected float flipY;
     protected Animator animator;
@@ -34,7 +34,7 @@ public class weaponController : MonoBehaviour
     virtual protected void Start()
     {
         animator = GetComponent<Animator>();
-        muzzlePos = transform.Find("Muzzle"); // Ç¹¿ÚÎ»ÖÃ
+        muzzlePos = transform.Find("Muzzle"); // æªå£ä½ç½®
         player = GetComponentInParent<playerController>();
         flipY = transform.localScale.y;
     }
@@ -43,7 +43,7 @@ public class weaponController : MonoBehaviour
     virtual protected void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // ·­×ªÎäÆ÷Í¼±ê
+        // ç¿»è½¬æ­¦å™¨å›¾æ ‡
         if (mousePos.x < transform.position.x)
         {
             transform.localScale = new Vector3(flipY, - flipY, 1f);
@@ -67,14 +67,14 @@ public class weaponController : MonoBehaviour
 
         float MP = player.currentMP;
         
-        if (Input.GetMouseButtonDown(0)) // ×ó¼ü·¢Éä
+        if (Input.GetMouseButtonDown(0)) // å·¦é”®å‘å°„
         {
-            if (timer != 0 && MP >= MP_consume)
+            if (timer == 0 && MP >= MP_consume)
             {
                 Fire();
                 timer = interval;
                 player.currentMP -= MP_consume;
-                player.rb.AddRelativeForce(- faceDirection * 100, ForceMode2D.Force); // ºó×øÁ¦
+                player.rb.AddRelativeForce(- faceDirection * 100, ForceMode2D.Force); // åååŠ›
             }
         }
     }
@@ -86,10 +86,10 @@ public class weaponController : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, muzzlePos.position, Quaternion.identity);
             bullet.transform.parent = player.transform;
-            float biasAngle = Random.Range(-3f, 3f); // Ëæ»úÆ«×ª½Ç
+            float biasAngle = Random.Range(-3f, 3f); // éšæœºåè½¬è§’
             bullet.GetComponent<Bullet>().SetSpeed(Quaternion.AngleAxis(biasAngle, Vector3.forward) * faceDirection);
         }
-        else // ¶à·¢
+        else // å¤šå‘
         {
             int medium = bulletNum / 2;
             for (int i = 0; i < bulletNum; i++)
