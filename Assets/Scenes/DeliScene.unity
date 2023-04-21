@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 371621640}
   - component: {fileID: 371621639}
   - component: {fileID: 371621642}
+  - component: {fileID: 371621643}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -331,6 +332,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &371621643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371621638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedb1121725d5c84a80a748a78d39054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_name: 
+  teamColor: 0
+  currentHP: 0
+  maxHp: 0
+  recoverHp: 0
+  currentMP: 0
+  maxMp: 0
+  recoverMp: 0
+  flyConsume: 0
+  defenseRate: 0
+  damages: 0
+  sufferance: 0
+  kills: 0
+  death: 0
+  kit: 0
+  moveSpeedX: 500
+  moveSpeedY: 500
+  gravityFactor: 0
+  maxFallSpeed: 0
+  isInEnemy: 0
+  isInAlley: 0
+  isGrounded: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  rb: {fileID: 0}
+  coll: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
