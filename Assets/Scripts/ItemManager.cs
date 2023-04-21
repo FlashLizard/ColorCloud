@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR;
 using static UnityEditor.PlayerSettings;
 
 [System.Serializable]
@@ -44,9 +46,10 @@ public class ItemManager : MonoBehaviour
         }
         ItemGenerators = new ItemGeneratorsArray[]
         {
-        SpringBoomer,
-        BirdMover,
+            SpringBoomer,
+            BirdMover,
         };
+
     }
 
     void Update()
@@ -55,9 +58,6 @@ public class ItemManager : MonoBehaviour
     }
     void ItemGenerator()
     {
-        
-        
-
         for (int i=0;i<appearIntervals.Count;i++)
         {
             appearTimers[i] += Time.deltaTime;
@@ -67,9 +67,6 @@ public class ItemManager : MonoBehaviour
                 ItemGenerators[i]();//调用生成第i个场景元素的函数
             }
         }
-        int randomNum = UnityEngine.Random.Range(0, 229028);
-        //SpringBoomer();
-        //BirdMover();
     }
     
     void SpringBoomer()
