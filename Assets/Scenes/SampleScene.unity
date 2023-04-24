@@ -3587,6 +3587,7 @@ GameObject:
   - component: {fileID: 349857431}
   - component: {fileID: 349857433}
   - component: {fileID: 349857432}
+  - component: {fileID: 349857434}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -3656,6 +3657,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349857430}
   m_CullTransparentMesh: 1
+--- !u!114 &349857434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349857430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431125365bc4f2f42bbb2b361b3472f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357352594
 GameObject:
   m_ObjectHideFlags: 0
@@ -9660,28 +9673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa36d8888b929b34ab78dba2025f1e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bird:
-    name: 
-    desciption: 
-    appearInterval: 0
-    existTime: 0
-    reuseTimes: 0
-    flySpeed: 1.14
-    emitInterval: 5.14
-    coloredRadius: 1.91
-    colorExistTime: 9.81
-    colorItself: white
-  spring:
-    name: 
-    desciption: 
-    appearInterval: 0
-    existTime: 0
-    reuseTimes: 0
-    flySpeed: 1.14
-    emitInterval: 5.14
-    velocityDecrease: 1.91
-    velocityIncrease: 9.81
-    hitForce: -1
+  prefab_Spring: {fileID: 0}
+  mask_Spring: {fileID: 0}
+  prefab_Bird: {fileID: 0}
+  mask_Bird: {fileID: 0}
+  appearIntervals: []
+  appearTimers: []
 --- !u!114 &1278851958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10583,7 +10580,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1376963337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349857434}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1376963337
 MonoBehaviour:
   m_ObjectHideFlags: 0
