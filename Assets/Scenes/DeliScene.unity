@@ -286,12 +286,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 692408429b7a8df4cb1f368851b0ec25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 781ac9f108d209d488e5cddd8f99dd35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -711,15 +711,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246c7934af10034468adf3857257e4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countPlayers: 0
+  countAllPlayers: 0
   countTeams: 0
+  colorsOfTeams: []
+  countPlayersOfTeams: 
   playMode: 0
   indexMap: 0
   totalTime: 300
+  settingState: 0
   leftTime: 0
   countItems: 0
   isStart: 0
-  isOver: 0
   survivors: 
   coloredRatios: []
   killings: 
@@ -3529,9 +3531,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 1285810296}
     m_Modifications:
     - target: {fileID: 8708697240986252310, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708697240986252310, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708697240986252310, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 31333b222367e8044a8f0448c228ee03, type: 3}
+      objectReference: {fileID: 21300000, guid: 89b38076a664d404f83813a86a8f6625, type: 3}
+    - target: {fileID: 8708697240986252310, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8708697240986252314, guid: 7dbb9b3f0f13b7142bcb2edcf0c91edf, type: 3}
       propertyPath: m_RootOrder
       value: 0

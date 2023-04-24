@@ -61,7 +61,6 @@ MonoBehaviour:
   flyDiretionTurnedTimer: 0
   existTimer: 0
   isDisappearing: 0
-  isOutOfMap: 0
   target_pos_x: 0
   target_pos_y: 0
 --- !u!212 &8708697240986252310
@@ -104,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e08e9a86a14a7c479dfd1cbaff29580, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31333b222367e8044a8f0448c228ee03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
