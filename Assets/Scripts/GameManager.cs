@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
         public int indexMap = 0;
         [Tooltip("一局游戏时长")]
         public float totalTime = 300f;
-        [Tooltip("配置进度")]
+        [Tooltip("配置进度 0:正在对局 1:选择游戏模式 2:选择地图和游戏时间 3:设置玩家编队 4:玩家选择人物和技能" )]
         public int settingState = 0;
-
+   
     [Header("对局进行时")]
         [Tooltip("剩余时长")]
         public float leftTime;
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
         
         [Tooltip("true:对局开始（已进入地图且对局开始） false:对局未开始（未进入地图 或 已进入地图但对局未开始）")]
         public bool isStart = false;
-        //[Tooltip("true:对局结束")]
-        //public bool isOver = false;
+        [Tooltip("true:对局结束")]
+        public bool isOver = false;
 
         [Tooltip("各个队伍当前存活人数")]
         public List<int> survivors = new List<int>();
@@ -68,15 +68,17 @@ public class GameManager : MonoBehaviour
         {
             AddPlayerByDevices();
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("esc");
-        }
+        //if(Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Debug.Log("esc");
+        //}
     }
 
     public void AddPlayerByDevices()
     {
         Debug.Log("Count : " + InputSystem.devices.Count);
+        Debug.Log("Name 0 :" + InputSystem.devices[0].name);
+        Debug.Log("Name 1 :" + InputSystem.devices[1].name);
         //InputSystem.AddDevice();
         InputSystem.onDeviceChange +=
         (device, change) =>
